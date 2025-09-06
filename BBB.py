@@ -9,7 +9,9 @@ class Dog:
             gender: str,
             favorite: str,
             long_hair: bool,
-            visit_type: str
+            visit_type: str,
+            daily_walks: int,
+            steps_per_walk: float,
     ):
         self.breed = breed
         self.size = size
@@ -20,6 +22,11 @@ class Dog:
         self.favorite = favorite
         self.long_hair = long_hair
         self.visit_type = visit_type
+        self.daily_walks = daily_walks
+        self.steps_per_walk = steps_per_walk
+
+    def daily_steps(self):
+        return f"Hoy mi perro caminó: {self.daily_walks * self.steps_per_walk} pasos"
 
     def medical_record(self):
         return print(f"Hola soy {self.name}, vengo a {self.visit_type}")
@@ -39,7 +46,9 @@ dog1 = Dog(
     gender="Hembra",
     favorite="Luisa",
     long_hair=True,
-    visit_type="Baño"
+    visit_type="Baño",
+    daily_walks=2,
+    steps_per_walk=250
 )
 
 dog2 = Dog(
@@ -51,7 +60,9 @@ dog2 = Dog(
     gender="Hembra",
     favorite="Luisa",
     long_hair=False,
-    visit_type="Vacuna"
+    visit_type="Vacuna",
+    daily_walks=1,
+    steps_per_walk=300
 )
 
 dog3 = Dog(
@@ -63,9 +74,13 @@ dog3 = Dog(
     gender="Hembra",
     favorite="Pablo",
     long_hair=True,
-    visit_type="Cirugía"
+    visit_type="Cirugía",
+    daily_walks=3,
+    steps_per_walk=100
 )
 
 dog1.master()
+steps = dog1.daily_steps()
+print(steps)
 
 #branch
